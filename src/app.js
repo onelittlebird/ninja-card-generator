@@ -39,10 +39,10 @@ function App() {
           </FileUploader>
         ) : null}
         {hasCards ? (
-          <div className="button transition" onClick={handlePrint}>Printa</div>
+          <div className="button transition" onClick={handlePrint}>printa</div>
         ) : null}
         {hasCards ? (
-          <div className="button transition button__secondary" onClick={handleClear}>Rensa</div>
+          <div className="button transition button__secondary" onClick={handleClear}>rensa</div>
         ) : null}
         <form id="form" onChange={(data) => handleTypeChange(data)}>
           <label className="label">
