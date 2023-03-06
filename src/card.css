@@ -1,8 +1,38 @@
+:root {
+  --swipe-background-a-color: rgba(253, 249, 242, 1);
+  --swipe-foreground-a-color: rgba(221, 137, 160, 1);
+  --swipe-background-b-color: rgba(227, 122, 111, 1);
+  --swipe-foreground-b-color: rgba(253, 241, 227, 1);
+}
+
+@media print {
+  .card {
+    width: 65mm !important;
+    height: 65mm !important;
+  }
+  .card-set {
+    margin-top: 7.4mm !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+.card-set {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 2vmax;
+}
+
+.card:first-child {
+  margin-right: 2vmax;
+}
+
 .card {
   display: flex;
   width: 20vmax;
   height: 20vmax;
-  margin: 0 0 2vmax 0;
+  text-align: center;
+  border-radius: 2vmax;
 }
 
 .card_text {
@@ -11,11 +41,24 @@
   font-size: 2vh;
 }
 
-.card-swipe-red-flag {
+.card-swipe-a {
   display: flex;
-  background-color: #E37A6F;
-  color: #FDF1E3;
+  background-color: var(--swipe-background-a-color);
+  color: var(--swipe-foreground-a-color);
   align-items: center;
   justify-content: center;
   font-family: 'ninjaFont', sans-serif;
+}
+
+.card-swipe-b {
+  display: flex;
+  background-color: var(--swipe-background-b-color);
+  color: var(--swipe-foreground-b-color);
+  align-items: center;
+  justify-content: center;
+  font-family: 'ninjaFont', sans-serif;
+}
+
+.card-swipe-image {
+  width: 100%;
 }

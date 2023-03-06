@@ -4,20 +4,43 @@
   box-sizing: border-box;
 }
 
+:root {
+  --tint-color: rgba(47, 49, 141, 1);
+  --tint-color-light: rgba(47, 49, 141, 0.1);
+  --light-color: rgba(255, 255, 247, 1);
+  --dark-color: rgba(0, 0, 0, 1);
+}
+
 html {
   font-size: 8px;
   font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--tint-color);
-  text-transform: lowercase;
+  color: var(--dark-color);
+  background-color: var(--light-color);
 }
 
 body {
   margin: 0;
 }
 
+body, * {
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
 @media print {
+  html {
+    background-color: white;
+  }
+
+  body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0mm 0mm 0mm 0mm;
+  }
+
   .no-print, .no-print * {
     display: none !important;
   }

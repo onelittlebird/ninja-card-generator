@@ -7,12 +7,14 @@ export default function Card({
   type,
 }) {
   return (
-    <div className="card">
-      <div className={`card-${game}-${type}`}>
+    <div className={`card card-${game}-${type}`}>
+      {text ? (
         <div className="card_text">
           {text}
         </div>
-      </div>
+      ) : (
+        <img className={`card-${game}-image`} src={`${game}-card-${type}.png`} />
+      )}
     </div>
   )
 }

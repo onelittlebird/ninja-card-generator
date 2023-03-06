@@ -5,6 +5,7 @@ import './app.css'
 
 function App() {
   const [cards, setCards] = React.useState([])
+  const [type, setType] = React.useState('a')
 
   const handleSelect = React.useCallback((file) => {
     /** Remove empty lines */
@@ -22,15 +23,19 @@ function App() {
     window.print()
   }, [])
 
+  const handleTypeChange = React.useCallback((data) => {
+    const value = document.querySelector("#form").elements.type.value
+    setType(value)
+  }, [])
+
+  const hasCards = cards.length
+
   return (
-    <div className="App">
-      <header className="App-header no-print">
-        <a className="logo-container" href="https://www.ninjaprint.se">
-          <img className="logo-source" src="logo.png" />
-        </a>
+    <div className={`app ${!hasCards ? 'app__center' : ''}`}>
+      <header className={`app-header animate no-print ${hasCards ? 'app-header__fixed' : ''}`}>
         {!cards.length ? (
           <FileUploader onSelect={handleSelect}>
-            <div className="button">Välj fil</div>
+            <div className="button">välj fil</div>
           </FileUploader>
         ) : null}
         {cards.length ? (
@@ -39,23 +44,46 @@ function App() {
         {cards.length ? (
           <div className="button button__secondary" onClick={handleClear}>Rensa</div>
         ) : null}
-        <label class="form-control">
-          <input type="radio" name="radio" checked />
-          Egenskaper
-        </label>
-        <label class="form-control">
-          <input type="radio" name="radio" />
-          Röd flagga
-        </label>
+        <form id="form" onChange={(data) => handleTypeChange(data)}>
+          <label className="form-control">
+            <input
+              type="radio"
+              id="typeA"
+              name="type"
+              value="a"
+              defaultChecked={type === 'a' ? true : false}
+            />
+            egenskaper
+          </label>
+          <label className="form-control">
+            <input
+              type="radio"
+              id="typeB"
+              name="type"
+              value="b"
+              defaultChecked={type === 'b' ? true : false}
+            />
+            röd flagga
+          </label>
+        </form>
       </header>
-      <div className="cards">
-        {cards.map((text, i) => (
-          <div className="card-set">
-            <Card game="swipe" type="red-flag" text={text} />
-            <Card game="swipe" type="red-flag" />
-          </div>
-        ))}
-      </div>
+      <a className="logo-container no-print" href="https://www.ninjaprint.se">
+        <img className="logo-source" src="logo.png" />
+      </a>
+      {hasCards ? (
+        <div className="cards">
+          {cards.slice(0, 100).map((text, i) => (
+            <div className="card-set">
+              <Card game="swipe" type={type} text={text} />
+              <Card game="swipe" type={type} />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="description">
+          Filen som laddas upp måste vara i formatet <b>csv</b>.
+        </div>
+      )}
     </div>
   )
 }
