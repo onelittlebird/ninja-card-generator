@@ -32,43 +32,43 @@ function App() {
 
   return (
     <div className={`app ${!hasCards ? 'app__center' : ''}`}>
-      <header className={`app-header animate no-print ${hasCards ? 'app-header__fixed' : ''}`}>
+      <header className={`app-header transition no-print ${hasCards ? 'app-header__fixed' : ''}`}>
         {!cards.length ? (
           <FileUploader onSelect={handleSelect}>
-            <div className="button">välj fil</div>
+            <div className="button transition">välj fil</div>
           </FileUploader>
         ) : null}
-        {cards.length ? (
-          <div className="button" onClick={handlePrint}>Printa</div>
+        {hasCards ? (
+          <div className="button transition" onClick={handlePrint}>Printa</div>
         ) : null}
-        {cards.length ? (
-          <div className="button button__secondary" onClick={handleClear}>Rensa</div>
+        {hasCards ? (
+          <div className="button transition button__secondary" onClick={handleClear}>Rensa</div>
         ) : null}
         <form id="form" onChange={(data) => handleTypeChange(data)}>
-          <label className="form-control">
+          <label className="label">
             <input
               type="radio"
-              id="typeA"
               name="type"
               value="a"
               defaultChecked={type === 'a' ? true : false}
+              className="transition"
             />
             egenskaper
           </label>
-          <label className="form-control">
+          <label className="label">
             <input
               type="radio"
-              id="typeB"
               name="type"
               value="b"
               defaultChecked={type === 'b' ? true : false}
+              className="transition"
             />
-            röd flagga
+            röda flaggor
           </label>
         </form>
       </header>
       <a className="logo-container no-print" href="https://www.ninjaprint.se">
-        <img className="logo-source" src="logo.png" />
+        <img alt="logo" className="logo-source" src="logo.png" />
       </a>
       {hasCards ? (
         <div className="cards">
@@ -80,7 +80,7 @@ function App() {
           ))}
         </div>
       ) : (
-        <div className="description">
+        <div className="description transition">
           Filen som laddas upp måste vara i formatet <b>csv</b>.
         </div>
       )}

@@ -7,12 +7,30 @@
 
 @media print {
   .card {
-    width: 65mm !important;
-    height: 65mm !important;
+    min-width: 65mm !important;
+    min-height: 65mm !important;
+    max-width: 65mm !important;
+    max-height: 65mm !important;
   }
   .card-set {
     margin-top: 7.4mm !important;
     margin-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-set {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0 !important;
+  }
+
+  .card:first-child {
+    margin-right: 0 !important;
+  }
+
+  .card {
+    margin-bottom: 2vmax;
   }
 }
 
@@ -29,8 +47,10 @@
 
 .card {
   display: flex;
-  width: 20vmax;
-  height: 20vmax;
+  min-width: 20vmax;
+  min-height: 20vmax;
+  max-width: 20vmax;
+  max-height: 20vmax;
   text-align: center;
   border-radius: 2vmax;
 }

@@ -24,8 +24,8 @@ body {
   margin: 0;
 }
 
-body, * {
-  transition-property: all;
+.transition {
+  transition-property: background-color, color;
   transition-duration: 0.3s;
   transition-timing-function: ease-out;
 }
