@@ -1,6 +1,6 @@
 :root {
-  --swipe-background-a-color: rgba(253, 249, 242, 1);
-  --swipe-foreground-a-color: rgba(221, 137, 160, 1);
+  --swipe-background-a-color: rgba(253, 241, 224, 1);
+  --swipe-foreground-a-color: rgba(213, 115, 105, 1);
   --swipe-background-b-color: rgba(227, 122, 111, 1);
   --swipe-foreground-b-color: rgba(253, 241, 227, 1);
 }
