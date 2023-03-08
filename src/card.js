@@ -7,14 +7,12 @@ export default function Card({
   type,
 }) {
   return (
-    <div className={`card transition card-${game}-${type}`}>
+    <div className={`card ${!text ? 'card__no-background' : ''} transition card-${game}-${type}`}>
       {text ? (
         <div className="card_text">
           {text}
         </div>
-      ) : (
-        <img alt="" className={`card-${game}-image`} src={`${game}-card-${type}.png`} />
-      )}
+      ) : null}
     </div>
   )
 }

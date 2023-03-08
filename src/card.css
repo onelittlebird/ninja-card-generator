@@ -11,54 +11,35 @@
     min-height: 65mm !important;
     max-width: 65mm !important;
     max-height: 65mm !important;
-  }
-  .card-set {
-    margin-top: 7.4mm !important;
     margin-bottom: 0 !important;
+    border-radius: 0 !important;
+  }
+  .card_text {
+    font-size: 24pt !important;
+    padding: 5mm !important;
   }
 }
 
 @media (max-width: 480px) {
-  .card-set {
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 0 !important;
-  }
-
   .card:first-child {
     margin-right: 0 !important;
   }
-
-  .card {
-    margin-bottom: 2vmax;
-  }
-}
-
-.card-set {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-bottom: 2vmax;
-}
-
-.card:first-child {
-  margin-right: 2vmax;
 }
 
 .card {
   display: flex;
-  min-width: 20vmax;
-  min-height: 20vmax;
-  max-width: 20vmax;
-  max-height: 20vmax;
+  min-width: 20vmin;
+  min-height: 20vmin;
+  max-width: 20vmin;
+  max-height: 20vmin;
   text-align: center;
-  border-radius: 2vmax;
+  margin-bottom: 2vmin;
+  border-radius: 2vmin;
 }
 
 .card_text {
-  width: 16vh;
-  padding: 0 2vh;
-  font-size: 2vh;
+  padding: 0 2vmin;
+  font-size: 2vmin;
 }
 
 .card-swipe-a {
@@ -79,6 +60,7 @@
   font-family: 'ninjaFont', sans-serif;
 }
 
-.card-swipe-image {
-  width: 100%;
+.card__no-background {
+  background-color: transparent;
 }
+

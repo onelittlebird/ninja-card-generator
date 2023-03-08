@@ -1,0 +1,36 @@
+.cards {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12rem;
+  align-items: center;
+}
+
+@media print {
+  .cards {
+    margin-top: 0 !important;
+  }
+  .card-page {
+    width: 210mm !important;
+    height: 297mm !important;
+    padding-top: 18.5mm !important;
+  }
+}
+
+.page-a {
+  background-image: url("../public/swipe-page-a-cutmarks.svg");
+}
+.page-b {
+  background-image: url("../public/swipe-page-b-cutmarks.svg");
+}
+
+.card-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-row {
+  display: flex;
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import FileUploader from './file-uploader.js'
-import Card from './card.js'
+import Cards from './cards.js'
 import './app.css'
 
 function App() {
@@ -71,14 +71,7 @@ function App() {
         <img alt="logo" className="logo-source" src="logo.png" />
       </a>
       {hasCards ? (
-        <div className="cards">
-          {cards.slice(0, 100).map((text, i) => (
-            <div className="card-set">
-              <Card game="swipe" type={type} text={text} />
-              <Card game="swipe" type={type} />
-            </div>
-          ))}
-        </div>
+        <Cards items={cards} type={type} />
       ) : (
         <div className="description transition">
           Filen som laddas upp måste vara i formatet <b>csv</b>.
